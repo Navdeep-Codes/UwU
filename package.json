@@ -1,0 +1,30 @@
+{
+  "name": "gamble-economy-slack-bot",
+  "version": "1.0.0",
+  "description": "A gambling economy bot for Slack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "slack",
+    "bot",
+    "economy",
+    "gambling"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/bolt": "^3.13.0",
+    "dotenv": "^16.0.3",
+    "mongoose": "^7.0.3",
+    "cron": "^2.3.0",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22"
+  }
+}
