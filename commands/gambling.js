@@ -2,7 +2,6 @@ const User = require('../models/user');
 const Lottery = require('../models/lottery');
 const { getUserMention, formatTimeRemaining } = require('../utils/helpers');
 
-// Helper function to ensure user exists in database
 async function getOrCreateUser(userId, username) {
   let user = await User.findOne({ userId });
   
@@ -19,7 +18,6 @@ async function getOrCreateUser(userId, username) {
   return user;
 }
 
-// Blackjack helper functions
 function createDeck() {
   const suits = ['♠️', '♥️', '♦️', '♣️'];
   const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -64,7 +62,6 @@ function getHandValue(hand) {
     }
   }
   
-  // Adjust for aces
   while (value > 21 && aces > 0) {
     value -= 10;
     aces -= 1;
@@ -81,9 +78,7 @@ function formatHand(hand) {
   return hand.map(card => formatCard(card)).join(' ');
 }
 
-// Roulette helper functions
 function getRouletteResult() {
-  // 0-36 plus 00 (37)
   return Math.floor(Math.random() * 38);
 }
 
@@ -93,7 +88,7 @@ function isRouletteNumberRed(num) {
 }
 
 function getRouletteColor(num) {
-  if (num === 0 || num === 37) return 'green'; // 0 and 00
+  if (num === 0 || num === 37) return 'green';
   return isRouletteNumberRed(num) ? 'red' : 'black';
 }
 
@@ -103,18 +98,15 @@ function formatRouletteNumber(num) {
 }
 
 module.exports = {
-  // Handle slots command
   handleSlots: async ({ message, say, args }) => {
     const userId = message.user;
     const username = await getUserMention(userId);
     const user = await getOrCreateUser(userId, username);
     
-    // Check if bet amount is provided
     if (!args || !args.length) {
       return say(`${username}, you need to specify an amount to bet. Example: \`!UwU slots 100\``);
     }
     
-    // Parse bet amount
     let betAmount;
     if (args[0].toLowerCase() === 'all') {
       betAmount = user.wallet;
@@ -122,7 +114,6 @@ module.exports = {
       betAmount = parseInt(args[0]);
     }
     
-    // Validate bet amount
     if (isNaN(betAmount) || betAmount <= 0) {
       return say(`${username}, please enter a valid bet amount.`);
     }
@@ -131,7 +122,6 @@ module.exports = {
       return say(`${username}, you don't have enough money in your wallet. You have $${user.wallet.toLocaleString()}.`);
     }
     
-    // Define slots symbols and their multipliers
     const symbols = [
       { symbol: '🍒', value: 1 },
       { symbol: '🍋', value: 1 },
@@ -144,28 +134,23 @@ module.exports = {
       { symbol: '🎰', value: 15 }
     ];
     
-    // Spin the slots
     const slotResults = [];
     for (let i = 0; i < 3; i++) {
       slotResults.push(symbols[Math.floor(Math.random() * symbols.length)]);
     }
     
-    // Determine win/loss
     let multiplier = 0;
     const resultsDisplay = slotResults.map(r => r.symbol).join(' | ');
     
     if (slotResults[0].symbol === slotResults[1].symbol && slotResults[1].symbol === slotResults[2].symbol) {
-      // All three match - big win
       multiplier = slotResults[0].value * 3;
     } else if (slotResults[0].symbol === slotResults[1].symbol || slotResults[1].symbol === slotResults[2].symbol) {
-      // Two adjacent match - small win
       multiplier = Math.max(
         slotResults[0].symbol === slotResults[1].symbol ? slotResults[0].value : 0,
         slotResults[1].symbol === slotResults[2].symbol ? slotResults[1].value : 0
       );
     }
     
-    // Apply multiplier
     const winnings = betAmount * multiplier;
     let resultMessage;
     
@@ -201,12 +186,10 @@ module.exports = {
     const username = await getUserMention(userId);
     const user = await getOrCreateUser(userId, username);
     
-    // Check if bet amount is provided
     if (!args || !args.length) {
       return say(`${username}, you need to specify an amount to bet. Example: \`!UwU blackjack 100\``);
     }
     
-    // Parse bet amount
     let betAmount;
     if (args[0].toLowerCase() === 'all') {
       betAmount = user.wallet;
@@ -214,7 +197,6 @@ module.exports = {
       betAmount = parseInt(args[0]);
     }
     
-    // Validate bet amount
     if (isNaN(betAmount) || betAmount <= 0) {
       return say(`${username}, please enter a valid bet amount.`);
     }
@@ -223,25 +205,19 @@ module.exports = {
       return say(`${username}, you don't have enough money in your wallet. You have $${user.wallet.toLocaleString()}.`);
     }
     
-    // Create a new shuffled deck
     const deck = createDeck();
     
-    // Deal initial cards
     const playerHand = [deck.pop(), deck.pop()];
     const dealerHand = [deck.pop(), deck.pop()];
     
     const playerValue = getHandValue(playerHand);
     const dealerValue = getHandValue(dealerHand);
     
-    // Format hands for display
     const playerDisplay = formatHand(playerHand);
     const dealerDisplay = `${formatCard(dealerHand[0])} ??`; // Hide one dealer card
     
-    // Check for natural blackjack
     if (playerValue === 21 && playerHand.length === 2) {
-      // Player has blackjack
       if (dealerValue === 21 && dealerHand.length === 2) {
-        // Both have blackjack - push
         await say({
           blocks: [
             {
@@ -258,7 +234,6 @@ module.exports = {
           ]
         });
       } else {
-        // Player wins with blackjack (1.5x payout)
         const winnings = Math.floor(betAmount * 2.5);
         user.wallet += (winnings - betAmount);
         user.stats.gamesWon += 1;
@@ -285,7 +260,6 @@ module.exports = {
       return;
     }
     
-    // Dealer has blackjack, player doesn't
     if (dealerValue === 21 && dealerHand.length === 2) {
       user.wallet -= betAmount;
       user.stats.totalLosses += betAmount;
@@ -310,8 +284,6 @@ module.exports = {
       return;
     }
     
-    // Set up interactive game session (simplified version)
-    // In a real implementation, you'd use interactive buttons/actions
     await say({
       blocks: [
         {
@@ -328,11 +300,9 @@ module.exports = {
       ]
     });
     
-    // In real implementation, you would store the game state and handle the hit/stand commands
-    // This demo just shows one round without interaction
+    
   },
   
-  // Handle dice command
   handleDice: async ({ message, say, args }) => {
     const userId = message.user;
     const username = await getUserMention(userId);
@@ -357,7 +327,6 @@ module.exports = {
       return say(`${username}, you don't have enough money in your wallet. You have $${user.wallet.toLocaleString()}.`);
     }
     
-    // Roll the dice
     const userRoll = Math.floor(Math.random() * 6) + 1;
     const botRoll = Math.floor(Math.random() * 6) + 1;
     
@@ -365,14 +334,12 @@ module.exports = {
     user.stats.gamesPlayed += 1;
     
     if (userRoll > botRoll) {
-      // User wins
       const winnings = betAmount;
       user.wallet += winnings;
       user.stats.gamesWon += 1;
       user.stats.totalWinnings += winnings;
       resultMessage = `You rolled a ${userRoll} and the bot rolled a ${botRoll}. You win $${winnings.toLocaleString()}!`;
     } else if (userRoll < botRoll) {
-      // User loses
       user.wallet -= betAmount;
       user.stats.totalLosses += betAmount;
       resultMessage = `You rolled a ${userRoll} and the bot rolled a ${botRoll}. You lose $${betAmount.toLocaleString()}.`;

@@ -17,8 +17,7 @@ module.exports = {
       return say(`${username} tried to punch themselves but missed. What was the point of that?`);
     }
     
-    // Random chance to steal coins
-    const stealCoins = Math.random() < 0.3; // 30% chance
+    const stealCoins = Math.random() < 0.3; 
     let stealMessage = "";
     
     if (stealCoins) {
@@ -103,20 +102,18 @@ module.exports = {
       return say(`That user hasn't used the economy system yet!`);
     }
     
-    // Amount to simp (1-10% of wallet)
     const minAmount = 10;
     if (user.wallet < minAmount) {
       return say(`${username} doesn't have enough money to simp for ${targetUsername}. Need at least $${minAmount}!`);
     }
     
-    const maxSimpAmount = Math.floor(user.wallet * 0.1); // 10% of wallet
+    const maxSimpAmount = Math.floor(user.wallet * 0.1); 
     const simpAmount = Math.max(minAmount, Math.floor(Math.random() * maxSimpAmount) + 1);
     
-    // 70% chance of success
+    
     const success = Math.random() < 0.7;
     
     if (success) {
-      // Transfer money
       user.wallet -= simpAmount;
       target.wallet += simpAmount;
       
@@ -134,7 +131,6 @@ module.exports = {
       const randomMessage = successMessages[Math.floor(Math.random() * successMessages.length)];
       await say(randomMessage);
     } else {
-      // No money transfer, just embarrassment
       const failMessages = [
         `${username} tried to simp for ${targetUsername} but got left on read.`,
         `${username} wrote a love letter to ${targetUsername} but it was used as a napkin.`,
@@ -212,7 +208,6 @@ module.exports = {
     const username = await getUserMention(userId);
     
     try {
-      // Call a meme API
       const response = await axios.get('https://meme-api.herokuapp.com/gimme');
       if (response.data && response.data.url) {
         await say({

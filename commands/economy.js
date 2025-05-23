@@ -2,7 +2,6 @@ const User = require('../models/user');
 const Shop = require('../models/shop');
 const { getUserMention, formatCurrency, parseBetAmount } = require('../utils/helpers');
 
-// Helper function to ensure user exists in database
 async function getOrCreateUser(userId, username) {
   let user = await User.findOne({ userId });
   
@@ -10,7 +9,7 @@ async function getOrCreateUser(userId, username) {
     user = new User({
       userId,
       username,
-      wallet: 500, // Starting amount
+      wallet: 500, 
       bank: 0
     });
     await user.save();
@@ -19,7 +18,6 @@ async function getOrCreateUser(userId, username) {
   return user;
 }
 const economyCommands = {
-  // Handle balance command
   handleBalance: async ({ message, say }) => {
     const userId = message.user;
     const username = await getUserMention(userId);
@@ -56,7 +54,6 @@ const economyCommands = {
   },
 }
 module.exports = {
-  // Previous handlers from first response (balance, daily, weekly, work)...
   
   handleBeg: async ({ message, say }) => {
     const userId = message.user;
@@ -64,7 +61,7 @@ module.exports = {
     const user = await getOrCreateUser(userId, username);
     
     const now = new Date();
-    const begCooldown = 5 * 60 * 1000; // 5 minutes
+    const begCooldown = 5 * 60 * 1000; 
     
     if (user.lastBeg && now - user.lastBeg < begCooldown) {
       const timeLeft = begCooldown - (now - user.lastBeg);
@@ -74,8 +71,7 @@ module.exports = {
       return say(`Slow down, ${username}! You can beg again in ${minutesLeft}m ${secondsLeft}s.`);
     }
     
-    // Random chance to get nothing
-    const success = Math.random() < 0.7; // 70% chance of success
+    const success = Math.random() < 0.7; 
     
     if (success) {
       const minAmount = 1;
@@ -187,7 +183,7 @@ module.exports = {
     const user = await getOrCreateUser(userId, username);
     
     const now = new Date();
-    const robCooldown = 30 * 60 * 1000; // 30 minutes
+    const robCooldown = 30 * 60 * 1000; 
     
     if (user.lastRob && now - user.lastRob < robCooldown) {
       const timeLeft = robCooldown - (now - user.lastRob);
@@ -217,18 +213,15 @@ module.exports = {
       return say(`${username}, you need at least $${minWalletForRob} in your wallet to attempt a robbery. It's the cost of tools.`);
     }
     
-    // Success rate based on random chance
-    const successRate = 0.4; // 40% chance to succeed
+    const successRate = 0.4; 
     const success = Math.random() < successRate;
     
     user.lastRob = now;
     
     if (success) {
-      // Rob between 10-30% of target's wallet
       const percentToRob = Math.random() * 0.2 + 0.1; // 0.1 to 0.3
       const amountStolen = Math.floor(targetUser.wallet * percentToRob);
       
-      // Transfer the money
       targetUser.wallet -= amountStolen;
       user.wallet += amountStolen;
       
@@ -237,8 +230,7 @@ module.exports = {
       
       await say(`${username} successfully robbed ${targetUsername} and got away with $${amountStolen.toLocaleString()}! Run!`);
     } else {
-      // Failed robbery - pay fine
-      const fine = Math.floor(user.wallet * 0.3); // 30% of wallet
+      const fine = Math.floor(user.wallet * 0.3); 
       user.wallet -= fine;
       
       await user.save();
@@ -256,7 +248,6 @@ module.exports = {
       return say(`${username}, your inventory is empty. Visit the shop to buy items!`);
     }
     
-    // Group items by type
     const groupedInventory = user.inventory.reduce((acc, item) => {
       if (!acc[item.type]) {
         acc[item.type] = [];
@@ -276,9 +267,7 @@ module.exports = {
       }
     ];
     
-    // Loop through each type of item
     for (const [type, items] of Object.entries(groupedInventory)) {
-      // Add a section for this type
       blocks.push({
         type: "section",
         text: {
@@ -287,7 +276,6 @@ module.exports = {
         }
       });
       
-      // Add each item in this type
       const itemsList = items.map(item => {
         return `• ${item.name} (${item.quantity}x) - ${item.description}`;
       }).join('\n');
@@ -309,14 +297,12 @@ module.exports = {
     const username = await getUserMention(userId);
     const user = await getOrCreateUser(userId, username);
     
-    // Get all shop items
     const shopItems = await Shop.find().sort({ price: 1 });
     
     if (!shopItems || shopItems.length === 0) {
       return say(`The shop is currently empty. Check back later!`);
     }
     
-    // Group items by type
     const groupedItems = shopItems.reduce((acc, item) => {
       if (!acc[item.type]) {
         acc[item.type] = [];
@@ -345,9 +331,7 @@ module.exports = {
       }
     ];
     
-    // Loop through each type of item
     for (const [type, items] of Object.entries(groupedItems)) {
-      // Add a section for this type
       blocks.push({
         type: "section",
         text: {
@@ -405,7 +389,6 @@ module.exports = {
       return say(`${username}, you don't have enough money to buy ${item.name}. It costs $${item.price.toLocaleString()}, but you only have $${user.wallet.toLocaleString()}.`);
     }
     
-    // Check if user already has this item
     const existingItem = user.inventory.find(i => i.itemId === item.itemId);
     
     if (existingItem) {
@@ -444,21 +427,18 @@ module.exports = {
       return say(`${username}, you don't have an item called "${itemName}" in your inventory.`);
     }
     
-    // Get the shop item to know the sell price
     const shopItem = await Shop.findOne({ itemId: inventoryItem.itemId });
     
     if (!shopItem || !shopItem.sellable) {
       return say(`${username}, this item cannot be sold.`);
     }
     
-    // Remove the item from inventory
     if (inventoryItem.quantity > 1) {
       inventoryItem.quantity -= 1;
     } else {
       user.inventory = user.inventory.filter(item => item.itemId !== inventoryItem.itemId);
     }
     
-    // Add the money to wallet
     user.wallet += shopItem.sellPrice;
     
     await user.save();
@@ -491,7 +471,6 @@ module.exports = {
       return say(`${username}, you don't have enough money. Your wallet: $${user.wallet.toLocaleString()}`);
     }
     
-    // Check if recipient exists
     const targetUsername = await getUserMention(targetId);
     let target = await User.findOne({ userId: targetId });
     
@@ -504,7 +483,6 @@ module.exports = {
       });
     }
     
-    // Transfer the money
     user.wallet -= amount;
     target.wallet += amount;
     
@@ -518,7 +496,6 @@ module.exports = {
     const userId = message.user;
     const username = await getUserMention(userId);
     
-    // Get top 10 users by total wealth
     const topUsers = await User.aggregate([
       {
         $addFields: {
