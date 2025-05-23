@@ -40,7 +40,7 @@ const restrictToGamblingChannel = async ({ message, next }) => {
   }
 };
 
-// Listen for message commands (with !Botname prefix)
+// Listen for message commands (with !UwU prefix)
 app.message(/^!UwU\s+(.+)$/i, restrictToGamblingChannel, async ({ context, message, say }) => {
   const commandText = context.matches[1].trim().toLowerCase();
   const [command, ...args] = commandText.split(' ');
@@ -86,7 +86,7 @@ app.message(/^!UwU\s+(.+)$/i, restrictToGamblingChannel, async ({ context, messa
     else if (command === 'dig') await toolCommands.handleDig({ message, say });
     
     // Command not found
-    else await say(`Command not found. Try \`!Botname help\` for a list of commands.`);
+    else await say(`Command not found. Try \`!UwU help\` for a list of commands.`);
   } catch (error) {
     console.error(error);
     await say('An error occurred while processing your command.');
@@ -94,7 +94,7 @@ app.message(/^!UwU\s+(.+)$/i, restrictToGamblingChannel, async ({ context, messa
 });
 
 // Add logic to process booster items
-app.message(/^!Botname\s+use\s+(.+)$/i, restrictToGamblingChannel, async ({ context, message, say }) => {
+app.message(/^!UwU\s+use\s+(.+)$/i, restrictToGamblingChannel, async ({ context, message, say }) => {
   const userId = message.user;
   const username = await getUserMention(userId);
   const itemName = context.matches[1].trim();

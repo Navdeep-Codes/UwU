@@ -5,7 +5,7 @@ const axios = require('axios');
 module.exports = {
   handlePunch: async ({ message, say, args }) => {
     if (!args || !args.length) {
-      return say(`Please specify someone to punch. Example: \`!Botname punch @user\``);
+      return say(`Please specify someone to punch. Example: \`!UwU punch @user\``);
     }
     
     const userId = message.user;
@@ -54,7 +54,7 @@ module.exports = {
   
   handleSlap: async ({ message, say, args }) => {
     if (!args || !args.length) {
-      return say(`Please specify someone to slap. Example: \`!Botname slap @user\``);
+      return say(`Please specify someone to slap. Example: \`!UwU slap @user\``);
     }
     
     const userId = message.user;
@@ -80,7 +80,7 @@ module.exports = {
   
   handleSimp: async ({ message, say, args }) => {
     if (!args || !args.length) {
-      return say(`Please specify someone to simp for. Example: \`!Botname simp @user\``);
+      return say(`Please specify someone to simp for. Example: \`!UwU simp @user\``);
     }
     
     const userId = message.user;
@@ -150,7 +150,7 @@ module.exports = {
   
   handleYeet: async ({ message, say, args }) => {
     if (!args || !args.length) {
-      return say(`Please specify someone to yeet. Example: \`!Botname yeet @user\``);
+      return say(`Please specify someone to yeet. Example: \`!UwU yeet @user\``);
     }
     
     const userId = message.user;
@@ -178,7 +178,7 @@ module.exports = {
   
   handleRoast: async ({ message, say, args }) => {
     if (!args || !args.length) {
-      return say(`Please specify someone to roast. Example: \`!Botname roast @user\``);
+      return say(`Please specify someone to roast. Example: \`!UwU roast @user\``);
     }
     
     const userId = message.user;

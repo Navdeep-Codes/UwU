@@ -111,7 +111,7 @@ module.exports = {
     
     // Check if bet amount is provided
     if (!args || !args.length) {
-      return say(`${username}, you need to specify an amount to bet. Example: \`!Botname slots 100\``);
+      return say(`${username}, you need to specify an amount to bet. Example: \`!UwU slots 100\``);
     }
     
     // Parse bet amount
@@ -203,7 +203,7 @@ module.exports = {
     
     // Check if bet amount is provided
     if (!args || !args.length) {
-      return say(`${username}, you need to specify an amount to bet. Example: \`!Botname blackjack 100\``);
+      return say(`${username}, you need to specify an amount to bet. Example: \`!UwU blackjack 100\``);
     }
     
     // Parse bet amount
@@ -321,8 +321,8 @@ module.exports = {
             text: `*${username}'s Blackjack Game*\n\n`+
                   `Dealer's Hand: ${dealerDisplay}\n`+
                   `Your Hand: ${playerDisplay} (${playerValue})\n\n`+
-                  `To hit, type \`!Botname hit\`\n`+
-                  `To stand, type \`!Botname stand\``
+                  `To hit, type \`!UwU hit\`\n`+
+                  `To stand, type \`!UwU stand\``
           }
         }
       ]
@@ -339,7 +339,7 @@ module.exports = {
     const user = await getOrCreateUser(userId, username);
     
     if (!args || !args.length) {
-      return say(`${username}, you need to specify an amount to bet. Example: \`!Botname dice 100\``);
+      return say(`${username}, you need to specify an amount to bet. Example: \`!UwU dice 100\``);
     }
     
     let betAmount;
@@ -402,7 +402,7 @@ module.exports = {
     const user = await getOrCreateUser(userId, username);
     
     if (!args || args.length < 2) {
-      return say(`${username}, you need to specify your choice and bet amount. Example: \`!Botname coinflip heads 100\``);
+      return say(`${username}, you need to specify your choice and bet amount. Example: \`!UwU coinflip heads 100\``);
     }
     
     const choice = args[0].toLowerCase();
@@ -466,7 +466,7 @@ module.exports = {
     const user = await getOrCreateUser(userId, username);
     
     if (!args || args.length < 2) {
-      return say(`${username}, you need to specify your bet type and amount. Example: \`!Botname roulette red 100\` or \`!Botname roulette 23 100\``);
+      return say(`${username}, you need to specify your bet type and amount. Example: \`!UwU roulette red 100\` or \`!UwU roulette 23 100\``);
     }
     
     const betType = args[0].toLowerCase();
@@ -608,7 +608,7 @@ module.exports = {
   
   handleDuel: async ({ message, say, args }) => {
     if (!args || args.length < 2) {
-      return say(`Please specify a user to duel and an amount. Example: \`!Botname duel @user 100\``);
+      return say(`Please specify a user to duel and an amount. Example: \`!UwU duel @user 100\``);
     }
     
     const userId = message.user;
@@ -689,7 +689,7 @@ module.exports = {
     const user = await getOrCreateUser(userId, username);
     
     if (!args || !args.length) {
-      return say(`${username}, please specify how many tickets to buy. Example: \`!Botname lottery buy 5\``);
+      return say(`${username}, please specify how many tickets to buy. Example: \`!UwU lottery buy 5\``);
     }
     
     const quantity = parseInt(args[0]);
@@ -842,7 +842,7 @@ module.exports = {
           elements: [
             {
               type: "mrkdwn",
-              text: "Buy tickets with `!Botname lottery buy <amount>`"
+              text: "Buy tickets with `!UwU lottery buy <amount>`"
             }
           ]
         }

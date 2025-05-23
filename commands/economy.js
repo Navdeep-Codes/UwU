@@ -117,7 +117,7 @@ module.exports = {
     const user = await getOrCreateUser(userId, username);
     
     if (!args || !args.length) {
-      return say(`Please specify an amount to deposit. Example: \`!Botname deposit 100\` or \`!Botname deposit all\``);
+      return say(`Please specify an amount to deposit. Example: \`!UwU deposit 100\` or \`!UwU deposit all\``);
     }
     
     let amount;
@@ -150,7 +150,7 @@ module.exports = {
     const user = await getOrCreateUser(userId, username);
     
     if (!args || !args.length) {
-      return say(`Please specify an amount to withdraw. Example: \`!Botname withdraw 100\` or \`!Botname withdraw all\``);
+      return say(`Please specify an amount to withdraw. Example: \`!UwU withdraw 100\` or \`!UwU withdraw all\``);
     }
     
     let amount;
@@ -179,7 +179,7 @@ module.exports = {
   
   handleRob: async ({ message, say, args }) => {
     if (!args || !args.length) {
-      return say(`Please specify someone to rob. Example: \`!Botname rob @user\``);
+      return say(`Please specify someone to rob. Example: \`!UwU rob @user\``);
     }
     
     const userId = message.user;
@@ -375,7 +375,7 @@ module.exports = {
       elements: [
         {
           type: "mrkdwn",
-          text: "Use `!Botname buy <item name>` to purchase an item."
+          text: "Use `!UwU buy <item name>` to purchase an item."
         }
       ]
     });
@@ -385,7 +385,7 @@ module.exports = {
   
   handleBuy: async ({ message, say, args }) => {
     if (!args || !args.length) {
-      return say(`Please specify an item to buy. Example: \`!Botname buy Fishing Rod\``);
+      return say(`Please specify an item to buy. Example: \`!UwU buy Fishing Rod\``);
     }
     
     const userId = message.user;
@@ -428,7 +428,7 @@ module.exports = {
   
   handleSell: async ({ message, say, args }) => {
     if (!args || !args.length) {
-      return say(`Please specify an item to sell. Example: \`!Botname sell Fishing Rod\``);
+      return say(`Please specify an item to sell. Example: \`!UwU sell Fishing Rod\``);
     }
     
     const userId = message.user;
@@ -468,7 +468,7 @@ module.exports = {
   
   handleGive: async ({ message, say, args }) => {
     if (!args || args.length < 2) {
-      return say(`Please specify a user and amount. Example: \`!Botname give @user 100\``);
+      return say(`Please specify a user and amount. Example: \`!UwU give @user 100\``);
     }
     
     const userId = message.user;
