@@ -18,10 +18,11 @@
   "license": "MIT",
   "dependencies": {
     "@slack/bolt": "^3.13.0",
-    "dotenv": "^16.0.3",
-    "mongoose": "^7.0.3",
     "cron": "^2.3.0",
-    "moment": "^2.29.4"
+    "dotenv": "^16.0.3",
+    "moment": "^2.29.4",
+    "mongoose": "^7.0.3",
+    "puppeteer": "^24.9.0"
   },
   "devDependencies": {
     "jest": "^29.5.0",
