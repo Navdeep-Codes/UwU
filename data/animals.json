@@ -1,7 +1,6 @@
 [
   {
     "name": "Fox",
-    "type": "Forest",
     "rarity": "Common",
     "value": 25,
     "attack": 10,
@@ -10,7 +9,6 @@
   },
   {
     "name": "Dragon",
-    "type": "Mythical",
     "rarity": "Legendary",
     "value": 1000,
     "attack": 90,
@@ -19,11 +17,18 @@
   },
   {
     "name": "Penguin",
-    "type": "Arctic",
     "rarity": "Uncommon",
     "value": 60,
     "attack": 12,
     "defense": 20,
     "emoji": "🐧"
+  },
+  {
+    "name": "Turtle",
+    "rarity": "Common",
+    "value": 25,
+    "attack": 10,
+    "defense": 8,
+    "emoji": ":toitle-zoom:"
   }
 ]
