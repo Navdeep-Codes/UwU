@@ -9,26 +9,6 @@
         "attack": 10,
         "defense": 8,
         "emoji": "🦊",
-        "caughtAt": 1748786232821
-      },
-      {
-        "name": "Fox",
-        "type": "Forest",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748786256595
-      },
-      {
-        "name": "Fox",
-        "type": "Forest",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
         "caughtAt": 1748786269225
       },
       {
@@ -52,6 +32,6 @@
         "caughtAt": 1748786270786
       }
     ],
-    "coins": 0
+    "coins": 110
   }
 }

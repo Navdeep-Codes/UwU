@@ -21,8 +21,8 @@ module.exports = {
     }
 
     const sorted = Object.entries(countMap)
-      .sort((a, b) => b[1] - a[1]) // sort by most owned
-      .slice(0, 15); // limit to 15 displayed
+      .sort((a, b) => b[1] - a[1]) 
+      .slice(0, 15); 
 
     const zooText = sorted
       .map(([key, count]) => `${key} ${count > 1 ? `×${count}` : ''}`)
