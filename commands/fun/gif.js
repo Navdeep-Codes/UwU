@@ -19,7 +19,7 @@ module.exports = {
       }
 
       const gif = data.data[Math.floor(Math.random() * data.data.length)];
-      await say(` <${gifUrl}|Here> is a ${text} GIF ${gif.url}`);
+      await say(` <${gif.url}|Here> is a ${text} GIF`);
     } catch (err) {
       console.error(err);
       await say("❌ Failed to fetch GIF.");
