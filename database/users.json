@@ -2,120 +2,13 @@
   "U083T3ZP6AV": {
     "animals": [
       {
-        "name": "Fox",
-        "type": "Forest",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748786269225
-      },
-      {
-        "name": "Fox",
-        "type": "Forest",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748786270674
-      },
-      {
-        "name": "Fox",
-        "type": "Forest",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748786270786
-      },
-      {
         "name": "Penguin",
         "rarity": "Uncommon",
         "value": 60,
         "attack": 12,
         "defense": 20,
         "emoji": "🐧",
-        "caughtAt": 1748863326265
-      }
-    ],
-    "coins": 110
-  },
-  "U08B60DCYG2": {
-    "animals": [
-      {
-        "name": "Fox",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748863332375
-      },
-      {
-        "name": "Fox",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748863333259
-      },
-      {
-        "name": "Fox",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748863337392
-      },
-      {
-        "name": "Fox",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748863339276
-      },
-      {
-        "name": "Turtle",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": ":toitle-zoom:",
-        "caughtAt": 1748863339732
-      },
-      {
-        "name": "Fox",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748863340777
-      },
-      {
-        "name": "Fox",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": "🦊",
-        "caughtAt": 1748863343259
-      },
-      {
-        "name": "Turtle",
-        "rarity": "Common",
-        "value": 25,
-        "attack": 10,
-        "defense": 8,
-        "emoji": ":toitle-zoom:",
-        "caughtAt": 1748863343394
+        "caughtAt": 1748865386174
       }
     ],
     "coins": 0

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Health Potion",
+    "id": "health_potion",
+    "emoji": "🧪",
+    "price": 10,
+    "description": "Heals your animal during battle."
+  },
+  {
+    "name": "Power Treat",
+    "id": "power_treat",
+    "emoji": "🍖",
+    "price": 15,
+    "description": "Increases damage for the next battle."
+  },
+  {
+    "name": "Shield Orb",
+    "id": "shield_orb",
+    "emoji": "🛡️",
+    "price": 25,
+    "description": "Reduces damage taken in your next battle."
+  }
+]
