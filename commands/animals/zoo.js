@@ -13,7 +13,6 @@ module.exports = {
       return await say("🦴 Your zoo is empty! Use `!U hunt` to find animals.");
     }
 
-    // Group animals
     const countMap = {};
     for (const a of userDB[id].animals) {
       const key = `${a.emoji} ${a.name}`;

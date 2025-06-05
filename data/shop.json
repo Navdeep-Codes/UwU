@@ -4,20 +4,26 @@
     "id": "health_potion",
     "emoji": "🧪",
     "price": 10,
-    "description": "Heals your animal during battle."
+    "description": "Heals your animal during battle.",
+    "min_dmg": 5,
+    "max_dmg": 10
   },
   {
     "name": "Power Treat",
     "id": "power_treat",
     "emoji": "🍖",
     "price": 15,
-    "description": "Increases damage for the next battle."
+    "description": "Increases damage for the next battle.",
+    "min_dmg": 10,
+    "max_dmg": 20
   },
   {
     "name": "Shield Orb",
     "id": "shield_orb",
     "emoji": "🛡️",
     "price": 25,
-    "description": "Reduces damage taken in your next battle."
+    "description": "Reduces damage taken in your next battle.",
+    "min_dmg": 5,
+    "max_dmg": 15
   }
 ]

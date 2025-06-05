@@ -10,6 +10,7 @@ module.exports = {
       "I doubt it.",
       "Definitely not.",
       "Fuck Yeah!",
+      "Nah"
     ];
     const answer = responses[Math.floor(Math.random() * responses.length)];
     await say(`🎱 *${text}* — ${answer}`);

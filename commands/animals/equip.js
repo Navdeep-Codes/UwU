@@ -22,12 +22,12 @@ module.exports = {
     const match = animals.find(a => a.name.toLowerCase() === query);
 
     if (!match) {
-      return await say("❌ You don't have that animal.");
+      return await say("You don't have that animal.");
     }
 
     userDB[id].equipped = match;
     save();
 
-    await say(`✅ Equipped ${match.emoji} *${match.name}* as your main companion!`);
+    await say(`Equipped ${match.emoji} *${match.name}* as your main companion!`);
   }
 };

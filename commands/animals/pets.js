@@ -15,6 +15,6 @@ module.exports = {
 
     const pet = data.equipped;
 
-    await say(`🐾 Your current companion is: ${pet.emoji} *${pet.name}* (${pet.rarity})\n💰 Value: ${pet.value} doubloons`);
+    await say(`🐾 Your current companion is: ${pet.emoji} *${pet.name}* (${pet.rarity})\n:doubloon: Value: ${pet.value} doubloons`);
   }
 };

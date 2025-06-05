@@ -2,13 +2,309 @@
   "U083T3ZP6AV": {
     "animals": [
       {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749142530484
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "emoji": "🦊",
+        "caughtAt": 1749142538179
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749142543691
+      }
+    ],
+    "doubloons": 60,
+    "inventory": {
+      "shield_orb": 1
+    }
+  },
+  "U07C4TK524Q": {
+    "animals": [
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143846778
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143854235
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143854690
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143859915
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143860141
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143861648
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143862110
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143862219
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143865124
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143901833
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143902838
+      },
+      {
         "name": "Penguin",
         "rarity": "Uncommon",
         "value": 60,
         "attack": 12,
         "defense": 20,
+        "hp": 150,
         "emoji": "🐧",
-        "caughtAt": 1748865386174
+        "caughtAt": 1749143902843
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143907152
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143911410
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143912199
+      },
+      {
+        "name": "Penguin",
+        "rarity": "Uncommon",
+        "value": 60,
+        "attack": 12,
+        "defense": 20,
+        "hp": 150,
+        "emoji": "🐧",
+        "caughtAt": 1749143914369
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143915597
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143918829
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143918833
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143920183
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143922151
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143924147
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143928585
+      },
+      {
+        "name": "Penguin",
+        "rarity": "Uncommon",
+        "value": 60,
+        "attack": 12,
+        "defense": 20,
+        "hp": 150,
+        "emoji": "🐧",
+        "caughtAt": 1749143929945
+      },
+      {
+        "name": "Fox",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 50,
+        "emoji": "🦊",
+        "caughtAt": 1749143931887
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143961643
+      },
+      {
+        "name": "Turtle",
+        "rarity": "Common",
+        "value": 25,
+        "attack": 10,
+        "defense": 8,
+        "hp": 100,
+        "emoji": ":toitle-zoom:",
+        "caughtAt": 1749143971185
       }
     ],
     "coins": 0

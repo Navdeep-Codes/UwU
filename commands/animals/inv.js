@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-const shop = require('../../data/shop.json');
+
 const userPath = path.join(__dirname, '../../database/users.json');
-const animalPath = path.join(__dirname, '../../database/animals.json');
+const animalPath = path.join(__dirname, '../../database/users.json');
+const shop = require('../../data/shop.json');
 
 function loadJSON(p) {
-  if (!fs.existsSync(p)) return {};
-  return JSON.parse(fs.readFileSync(p));
+  return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p)) : {};
 }
 
 module.exports = {
@@ -14,44 +14,39 @@ module.exports = {
   run: async ({ user, say }) => {
     const users = loadJSON(userPath);
     const animals = loadJSON(animalPath);
-    const shopItems = shop;
+    const data = users[user];
+    const zoo = animals[user];
 
-    const u = users[user];
-    if (!u) return say("❌ You don't have any inventory yet.");
+    if (!data && !zoo) return say("You have no inventory yet!");
 
-    const inv = u.inventory || {};
-    const animalInv = animals[user] || {};
+    let msg = `*<@${user}>'s Inventory*\n`;
 
-    let inventoryMsg = `🎒 *Inventory for <@${user}>*\n`;
-
-    if (u.equipped) {
-      const equipped = shopItems.find(i => i.id === u.equipped);
-      if (equipped) {
-        inventoryMsg += `🛡 Equipped: ${equipped.emoji} *${equipped.name}*\n`;
+    const items = data?.inventory || {};
+    if (Object.keys(items).length > 0) {
+      msg += `\n*Items:*\n`;
+      for (const [id, count] of Object.entries(items)) {
+        const item = shop.find(i => i.id === id);
+        msg += `> ${item?.emoji || '📦'} ${item?.name || id} ×${count}\n`;
       }
+    } else {
+      msg += `\n*Items:* _none_\n`;
     }
 
-    if (Object.keys(inv).length > 0) {
-      inventoryMsg += `\n🧪 *Battle Items:*\n`;
-      for (const id in inv) {
-        const item = shopItems.find(i => i.id === id);
-        if (item) {
-          inventoryMsg += `• ${item.emoji} *${item.name}* ×${inv[id]}\n`;
-        }
+    const animalList = zoo?.animals || [];
+    if (animalList.length > 0) {
+      msg += `\n*Animals Collected:*\n`;
+      for (const animal of animalList) {
+        msg += `> ${animal.emoji || '🐾'} ${animal.name} — Atk: ${animal.attack}, Def: ${animal.defense}\n`;
       }
+    } else {
+      msg += `\n*Animals:* _none_\n`;
     }
 
-    if (Object.keys(animalInv).length > 0) {
-      inventoryMsg += `\n🦁 *Animals:*\n`;
-      for (const a in animalInv) {
-        inventoryMsg += `• ${animalInv[a].emoji || "🐾"} *${animalInv[a].name}* ×${animalInv[a].x}\n`;
-      }
+    if (zoo?.companion) {
+      const c = zoo.companion;
+      msg += `\n*Companion Equipped:* ${c.emoji || '✨'} ${c.name} — Atk: ${c.attack}, Def: ${c.defense}, HP: ${c.hp}\n`;
     }
 
-    if (inventoryMsg.trim() === `🎒 *Inventory for <@${user}>*`) {
-      return say("❌ You don’t own anything yet.");
-    }
-
-    return say(inventoryMsg);
+    return say(msg);
   }
 };

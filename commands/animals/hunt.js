@@ -1,17 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 
-// Load animals list
 const animals = JSON.parse(fs.readFileSync(path.join(__dirname, '../../data/animals.json')));
 
-// Load or create user data
+
 const userDBPath = path.join(__dirname, '../../database/users.json');
 if (!fs.existsSync(userDBPath)) fs.writeFileSync(userDBPath, '{}');
 
 const userDB = JSON.parse(fs.readFileSync(userDBPath));
 
 function getRandomAnimal() {
-  // Adjust weights based on rarity
   const weights = {
     Common: 60,
     Uncommon: 25,

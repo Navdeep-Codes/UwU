@@ -13,7 +13,7 @@ const app = new App({
   appToken: process.env.SLACK_APP_TOKEN,
 });
 
-// Load commands
+// commands
 const commandFolders = fs.readdirSync("./commands");
 for (const folder of commandFolders) {
   const folderPath = path.join(__dirname, "commands", folder);
@@ -28,7 +28,6 @@ for (const folder of commandFolders) {
   }
 }
 
-// Listen to all messages
 app.message(async ({ message, say, context }) => {
   try {
     if (!message.text || !message.text.startsWith(COMMAND_PREFIX)) return;
