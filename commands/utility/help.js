@@ -4,8 +4,10 @@ module.exports = {
     const helpMessage = `
 :hii: *Hello! I'm UwU a multifun bot!*
 
-Here are some commands you can use:
-
+Here are some commands you can use:\n
+- \`!U 8b [question]\` - 9b a question u might have\n
+- \`!U gif [gif search]\` - Get a gif!\n
+- \`!U pic\` - Get a random pic!\n
 - \`!U help\` - Show this help message \n
 - \`!U pets\` - Show your equipped pet\n
 - \`!U zoo\` - Show your animal collection\n
